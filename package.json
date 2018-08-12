@@ -1,14 +1,19 @@
 {
-  "name": "polymer-3-component-generator",
+  "name": "gnrtr",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A generator for user scaffolds",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "CLI",
+    "generator",
+    "scaffolds",
+    "templates",
+    "nunjucks"
+  ],
+  "author": "Kus Cámara <kus.camara@gmail.com>",
+  "license": "MIT",
   "bin": {
     "gnrtr": "bin/cli.js"
   },
