@@ -1,0 +1,19 @@
+{
+  "polymer-3-component": {
+    "templates": "/<your-path>/gnrtr-templates/polymer-3-component-with-serve/",
+    "fileNameReplacement": ["component", "name"],
+    "questions": [
+      {
+        "type": "input",
+        "name": "scope",
+        "message": "Your package scope (@your-scope)",
+        "default": "@kuscamara"
+      },
+      {
+        "type": "input",
+        "name": "name",
+        "message": "Component name without extension (.js by default)"
+      }
+    ]
+  }
+}
