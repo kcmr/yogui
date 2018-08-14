@@ -2,17 +2,14 @@
 
 const Generator = require('../lib/generator');
 
-require('chai').expect();
-
 describe('Generator', () => {
   describe('init()', () => {
-    it('throws an error when the config file is not found', () => {
+    it('throws an error if the config file is not found', async () => {
       const instance = new Generator({
         configFileName: 'config'
       });
 
-      (() => {instance.init()})
-        .should.Throw('No config found in a config file');
+      await expect(instance.init()).rejects.toThrow('No config found in a config file');
     });
   });
 });
