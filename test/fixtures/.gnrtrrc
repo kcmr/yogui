@@ -1,0 +1,14 @@
+{
+  "default": {
+    "templates": "./scaffold/",
+    "fileNameReplacement": ["scaffold", "name"],
+    "questions": [
+      {
+        "type": "input",
+        "name": "name",
+        "message": "Name param",
+        "default": "any"
+      }
+    ]
+  }
+}
