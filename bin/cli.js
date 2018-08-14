@@ -8,12 +8,12 @@ const chalk = require('chalk');
 
 const cli = new Generator();
 
-const logResult = (result) => {
+const logResult = result => {
   const message = `${result.generator} successfully generated in ${result.dest}`;
   log(chalk.green(message));
 };
 
-const logError = (error) => {
+const logError = error => {
   log.error(chalk.red(error.message));
 };
 
