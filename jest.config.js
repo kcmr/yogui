@@ -2,6 +2,7 @@ module.exports = {
   verbose: true,
   testEnvironment: 'node',
   coverageDirectory: './coverage',
+  collectCoverage: true,
   coveragePathIgnorePatterns: [
     '<rootDir>/examples'
   ],
