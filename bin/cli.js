@@ -8,5 +8,5 @@ const log = require('fancy-log');
 const cli = new Generator();
 
 cli.init()
-  .then(() => log('Generated!'))
+  .then((result) => log(`${result.generator} successfully generated in ${result.dest}`))
   .catch(error => log.error(error.message));
