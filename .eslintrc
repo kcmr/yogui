@@ -6,6 +6,7 @@
   "rules": {
     "capitalized-comments": 0,
     "no-warning-comments": 0,
-    "radix": 0
+    "radix": 0,
+    "operator-linebreak": 0
   }
 }
