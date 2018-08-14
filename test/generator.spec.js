@@ -26,7 +26,7 @@ describe('Generator', () => {
       const instance = new Generator();
 
       inquirer.prompt.mockResolvedValue(answersForGeneratorMock);
-      
+
       return instance.init()
         .then(() => {
           expect(instance.config.configFileName).toEqual('.gnrtrrc');
