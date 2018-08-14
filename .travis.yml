@@ -1,7 +1,6 @@
 language:
   node_js
 install:
-  - npm install -g codecov
+  - npm install -g codecov jest
 script:
-  - xvfb-run npm test
-  - codecov
+  - jest && codecov
