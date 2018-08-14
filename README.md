@@ -9,7 +9,7 @@
 
 ## Configuration
 
-The path to your scaffold templates and questions should be specified in a `.gnrtr` file inside your home directory or any other directory where you want to use it.
+The path to your scaffold templates and questions should be specified in a `.gnrtrrc` file inside your home directory or any other directory where you want to use it.
 
 ### Sample config file
 
