@@ -1,18 +1,18 @@
 # Yogui (WIP)
 
-[![Build Status](https://img.shields.io/travis/kcmr/gnrtr/master.svg)](https://travis-ci.org/kcmr/gnrtr) 
-[![codecov](https://codecov.io/gh/kcmr/gnrtr/branch/master/graph/badge.svg)](https://codecov.io/gh/kcmr/gnrtr)
+[![Build Status](https://img.shields.io/travis/kcmr/yogui/master.svg)](https://travis-ci.org/kcmr/yogui) 
+[![codecov](https://codecov.io/gh/kcmr/yogui/branch/master/graph/badge.svg)](https://codecov.io/gh/kcmr/yogui)
 
 > A generator for user scaffolds. Think of it as a ridiculously simple (and limited) Yeoman.
 
 
-**gnrtr** allows you to create new projects from your own templates with your own set of questions for the CLI and variables for your scaffold templates.
+**yogui** allows you to create new projects from your own templates with your own set of questions for the CLI and variables for your scaffold templates.
 
-![CLI screenshot](gnrtr.png)
+![CLI screenshot](yogui.png)
 
 ## Configuration
 
-The path to your scaffold templates and questions should be specified in a `.gnrtrrc` file inside your home directory or any other directory where you want to use it.
+The path to your scaffold templates and questions should be specified in a `.yoguirc` file inside your home directory or any other directory where you want to use it.
 
 ### Sample config file
 
@@ -36,8 +36,7 @@ The path to your scaffold templates and questions should be specified in a `.gnr
     ]
   },
   "polymer-3-app": {
-    "templates": "/Users/username/gnrtr-templates/polymer-3-app/",
-    ...
+    "templates": "/Users/username/gnrtr-templates/polymer-3-app/"
   }
 }
 ```

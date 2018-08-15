@@ -22,14 +22,14 @@ describe('Generator', () => {
   });
 
   describe('calling init() without config file', () => {
-    it('uses .gnrtrrc file as config', () => {
+    it('uses .yoguirc file as config', () => {
       const instance = new Generator();
 
       inquirer.prompt.mockResolvedValue(answersForGeneratorMock);
 
       return instance.init()
         .then(() => {
-          expect(instance.config.configFileName).toEqual('.gnrtrrc');
+          expect(instance.config.configFileName).toEqual('.yoguirc');
         });
     });
   });
