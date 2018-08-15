@@ -2,12 +2,6 @@
   "name": "yogui",
   "version": "0.0.0",
   "description": "A generator for user scaffolds",
-  "scripts": {
-    "test": "jest --coverage",
-    "test:debug": "jest --verbose=false --collectCoverage=false",
-    "test:watch": "jest --coverage --watch",
-    "lint": "eslint . --fix"
-  },
   "keywords": [
     "CLI",
     "generator",
@@ -16,6 +10,10 @@
     "nunjucks"
   ],
   "author": "Kus Cámara <kus.camara@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kcmr/yogui.git"
+  },
   "license": "MIT",
   "bin": {
     "yogui": "bin/cli.js"
@@ -31,5 +29,11 @@
     "jest": "^23.5.0",
     "eslint": "^5.3.0",
     "eslint-config-xo-space": "^0.20.0"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "test:debug": "jest --verbose=false --collectCoverage=false",
+    "test:watch": "jest --coverage --watch",
+    "lint": "eslint . --fix"
   }
 }
