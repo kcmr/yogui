@@ -1,27 +1,44 @@
-# Yogui (WIP)
+# Yogui
 
 [![Build Status](https://img.shields.io/travis/kcmr/yogui/master.svg)](https://travis-ci.org/kcmr/yogui) 
 [![codecov](https://codecov.io/gh/kcmr/yogui/branch/master/graph/badge.svg)](https://codecov.io/gh/kcmr/yogui)
 
 > A generator for user scaffolds. Think of it as a ridiculously simple Yeoman.
 
+![CLI screenshot](https://raw.githubusercontent.com/kcmr/yogui/master/docs/yogui.gif)
 
 **Yogui** allows you to create new projects from your own templates with your own set of questions for the CLI. 
 
 The only requirements to start using it are a `.yoguirc` file where you specify the path to each template and the scaffold templates where you can use the [Nunjucks](https://mozilla.github.io/nunjucks/) templating engine to set the value of your variables.
 
-![CLI screenshot](docs/yogui.gif)
-
 ## Configuration
 
-The path to your scaffold templates and questions should be specified in a `.yoguirc` file inside your home directory or any other directory where you want to use it.
+### Installation
 
-### Sample config file
+For global usage:
+
+```sh
+npm install -g yogui
+```
+
+As a project dependency:
+
+```sh
+npm install --save-dev yogui
+```
+
+### Config file `.yoguirc`
+
+Create a file called `.yoguirc` in the directory you want to use it. It can be a project directory or your home directory (`~/`). The configuration file sets the config for that directory and all of its subdirectories. If Yogui doesn't find a config file in the directory where it is executed, it will look for a config file in parent directories.
+
+The file should be a **valid JSON**.
+
+**Example**
 
 ```json
 {
   "polymer-3-component": {
-    "templates": "/Users/username/gnrtr-templates/polymer-3-component/",
+    "templates": "/Users/username/my-templates/polymer-3-component/",
     "fileNameReplacement": ["component", "name"],
     "questions": [
       {
@@ -37,29 +54,36 @@ The path to your scaffold templates and questions should be specified in a `.yog
       }
     ]
   },
-  "polymer-3-app": {
-    "templates": "/Users/username/gnrtr-templates/polymer-3-app/"
+  "node-project": {
+    "templates": "/Users/username/my-templates/node-project/"
   }
 }
 ```
 
-Each of the keys at the first level is a generator. `templates` and `questions` are mandatory fields. `fileNameReplacement` is optional and allows you to specify the file name used in your scaffold templates that will be replaced by one of the params of your questions.
+#### Params
 
-In the example above, any file that contains the name "component" in the scaffold will be replaced by the param `name` obtained from the answers given by the user to the `questions`. In this case it will be the component name.
+- **Generator name** (`String`) **required**   
+The key at the first level is the name of each generator. If the config file only contains one generator, the prompt for the generator type will be skipped.
 
-Questions should have the expected format by [inquirer](https://github.com/SBoudrias/Inquirer.js).
+- **`templates`** (`String`) **required**   
+Path to the scaffold template for a generator. It can be an absolut or relative path.
+
+- **`fileNameReplacement`** (`Array`)    
+String in the scaffold file names that will be replaced by the specified variable in the files of the generated project. For example, a file named `component_test.html` in the scaffold templates will be renamed to `my-component_test.html` in the generated project if the user responds to the first question with `my-component`. If not provided, the generated files will keep the names used in the templates.
+
+- **`questions`** (`Array`) **required**   
+List of questions for each generator. They should have the expected format by [inquirer](https://github.com/SBoudrias/Inquirer.js). Each question has a `name` key that will be available as a variable in your scaffold templates and for the `fileNameReplacement`.
+
 
 ### Scaffold templates
 
 Templates use the [Nunjucks](https://mozilla.github.io/nunjucks/) templating engine. 
 
-Inside your templates you can use any of the variables obtained from your set of questions and three functions for string conversion (`camelCase`, `capitalize` and `titleCase`).
+Inside your templates you can use any of the variables obtained from the questions for a generator (`name` keys) and three utility functions for common string conversions (`camelCase`, `capitalize` and `titleCase`).
 
-In the example above you could use vars `scope` and `name` inside your template files.
+**Examples**
 
-**Example**
-
-package.json:
+`package.json`:
 
 ```json
 {
@@ -74,28 +98,26 @@ package.json:
 }
 ```
 
-component_test.html ("component" will be replaced by the component name (`name` param)):
+`component.js`:
 
-```html
-<test-fixture id="default">
-  <template>
-    <{{name}}></{{name}}>
-  </template>
-</test-fixture>
+```js
+/**
+ * `<{{name}}>` description.
+ * @polymer
+ * @customElement
+ * @extends {PolymerElement}
+ */
+class {{titleCase(name)}} extends PolymerElement {
+  static get template() {
+    return html``;
+  }
 
-<script>
-  suite('<{{name}}>', () => {
-    let el;
+  static get properties() {
+    return {};
+  }
+}
 
-    setup(() => {
-      el = fixture('default');
-    });
-
-    test('is Ok', () => {
-      assert.isOk(el);
-    });
-  });
-</script>
+customElements.define('{{name}}', {{titleCase(name)}});
 ```
 
 ## Examples
