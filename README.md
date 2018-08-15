@@ -1,5 +1,8 @@
 # gnrtr (WIP)
 
+[![Build Status](https://img.shields.io/travis/kcmr/gnrtr/master.svg)](https://travis-ci.org/kcmr/gnrtr) 
+[![codecov](https://codecov.io/gh/kcmr/gnrtr/branch/master/graph/badge.svg)](https://codecov.io/gh/kcmr/gnrtr)
+
 > A generator for user scaffolds. Think of it as a ridiculously simple (and limited) Yeoman.
 
 
