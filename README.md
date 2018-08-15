@@ -3,10 +3,12 @@
 [![Build Status](https://img.shields.io/travis/kcmr/yogui/master.svg)](https://travis-ci.org/kcmr/yogui) 
 [![codecov](https://codecov.io/gh/kcmr/yogui/branch/master/graph/badge.svg)](https://codecov.io/gh/kcmr/yogui)
 
-> A generator for user scaffolds. Think of it as a ridiculously simple (and limited) Yeoman.
+> A generator for user scaffolds. Think of it as a ridiculously simple Yeoman.
 
 
-**yogui** allows you to create new projects from your own templates with your own set of questions for the CLI and variables for your scaffold templates.
+**Yogui** allows you to create new projects from your own templates with your own set of questions for the CLI. 
+
+The only requirements to start using it are a `.yoguirc` file where you specify the path to each template and the scaffold templates where you can use the [Nunjucks]((https://mozilla.github.io/nunjucks/)) templating engine to set the value of your variables.
 
 ![CLI screenshot](docs/yogui.gif)
 
