@@ -1,0 +1,10 @@
+{
+  "name": "{{scope}}/{{name}}",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src/{{name}}.js",
+  "keywords": [],
+  "dependencies": {
+    "@polymer/polymer": "^3.0.5"
+  }
+}
