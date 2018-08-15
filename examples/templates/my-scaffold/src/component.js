@@ -8,9 +8,7 @@ import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
  */
 class {{titleCase(name)}} extends PolymerElement {
   static get template() {
-    return html`
-      <link rel="stylesheet" href="{{name}}.css" inline>
-    `;
+    return html``;
   }
 
   static get properties() {
