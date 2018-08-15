@@ -166,4 +166,19 @@ npm run create-element
 
 The `examples` folder in this repository contains a sample config file and a scaffold template.
 
+## Known limitations and future improvements
 
+- **Config file format (JSON)**   
+At this moment the config file should be a JSON file, so the params for the questions should be strings. [Inquirer allows to use functions](https://github.com/SBoudrias/Inquirer.js#questions) to validate or transform the answers.
+- **CLI command params**   
+The CLI command doesn't accept any param. In a future release it will accept the generator type and the destiny folder.
+- **No warning if the destiny folder already exists**   
+So... be cautious for now :/
+
+This is a personal project maintained in my free time, so I'll be happy to accept contributions.
+
+## Why that name?
+
+The project started with a very bad one: **gnrtr**. It was difficult to pronounce and remember, so I ended up with an acronym that stands for ***Y**our **O**wn **G**enerator with **U**ser **I**nterface*.
+
+And like JavaScript and Java, it starts with `yo` like the Yeoman CLI command :)
