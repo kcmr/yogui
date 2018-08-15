@@ -69,8 +69,6 @@ describe('Generator', () => {
       return instance.init()
         .then(() => {
           expect(inquirer.prompt).toBeCalledWith(instance._promptForTypes);
-        })
-        .then(() => {
           expect(inquirer.prompt.mock.calls.length).toBe(2);
         });
     });
