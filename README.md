@@ -1,4 +1,4 @@
-# gnrtr (WIP)
+# Yogui (WIP)
 
 [![Build Status](https://img.shields.io/travis/kcmr/gnrtr/master.svg)](https://travis-ci.org/kcmr/gnrtr) 
 [![codecov](https://codecov.io/gh/kcmr/gnrtr/branch/master/graph/badge.svg)](https://codecov.io/gh/kcmr/gnrtr)

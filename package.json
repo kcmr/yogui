@@ -1,5 +1,5 @@
 {
-  "name": "gnrtr",
+  "name": "yogui",
   "version": "1.0.0",
   "description": "A generator for user scaffolds",
   "scripts": {
@@ -17,7 +17,7 @@
   "author": "Kus Cámara <kus.camara@gmail.com>",
   "license": "MIT",
   "bin": {
-    "gnrtr": "bin/cli.js"
+    "yogui": "bin/cli.js"
   },
   "dependencies": {
     "chalk": "^2.4.1",
