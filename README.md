@@ -122,7 +122,7 @@ customElements.define('{{name}}', {{titleCase(name)}});
 
 ### Used as a project dependency
 
-Typically you will need to install Yogui as a `devDependency` in a project to create new project components during development.
+Install Yogui in your project as a `devDependency`.
 
 Create a `.yoguirc` file in the project's root with a relative path to the scaffold templates.
 
@@ -144,7 +144,7 @@ Create a `.yoguirc` file in the project's root with a relative path to the scaff
 }
 ```
 
-If you also have Yogui installed globally, you can simply run `yogui` inside the project folder to launch the prompt, otherwise you'll need to run the Yogui binary inside `node_modules/` or add a new entry in the `scripts` field of your project's `package.json` with the `yogui` command.
+If you also have Yogui installed globally, you can simply run `yogui` inside the project folder to launch the prompt, otherwise you'll need to run the Yogui binary inside `node_modules/`. Typically you do so by adding a new entry in the `scripts` field of your project's `package.json` with the `yogui` command.
 
 `package.json`:
 
@@ -156,7 +156,7 @@ If you also have Yogui installed globally, you can simply run `yogui` inside the
 }
 ```
 
-Usage:
+Create a new element inside the project:
 
 ```sh
 npm run create-element
@@ -165,6 +165,5 @@ npm run create-element
 ## More examples
 
 The `examples` folder in this repository contains a sample config file and a scaffold template.
-
 
 
