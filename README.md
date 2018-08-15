@@ -8,7 +8,7 @@
 
 **yogui** allows you to create new projects from your own templates with your own set of questions for the CLI and variables for your scaffold templates.
 
-![CLI screenshot](yogui.png)
+![CLI screenshot](docs/yogui.gif)
 
 ## Configuration
 
