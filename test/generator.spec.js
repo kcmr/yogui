@@ -3,6 +3,7 @@
 const Generator = require('../lib/generator');
 const inquirer = require('inquirer');
 const {scaffold} = require('nunjucks-scaffold-generator');
+const path = require('path');
 
 jest.mock('inquirer');
 jest.mock('nunjucks-scaffold-generator');
@@ -85,6 +86,23 @@ describe('Generator', () => {
       return instance.init()
         .then(() => {
           expect(scaffold.mock.calls[0][0].replacement).toBeUndefined();
+        });
+    });
+
+    it('generates the files in the current working directory if the destiny path is not specified', () => {
+      const instance = new Generator({
+        configFileName: 'single-generator.json'
+      });
+
+      inquirer.prompt.mockResolvedValue({
+        name: 'any',
+        dest: 'fixtures'
+      });
+
+      return instance.init()
+        .then(() => {
+          expect(scaffold.mock.calls[0][0].dest)
+            .toEqual(path.resolve(process.cwd(), '.'));
         });
     });
   });

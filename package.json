@@ -4,6 +4,7 @@
   "description": "A generator for user scaffolds",
   "scripts": {
     "test": "jest --coverage",
+    "test:debug": "jest --verbose=false --collectCoverage=false",
     "test:watch": "jest --coverage --watch",
     "lint": "eslint . --fix"
   },
