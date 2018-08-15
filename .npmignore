@@ -1,2 +1,5 @@
 examples
 docs
+coverage
+.*
+*.config.js
