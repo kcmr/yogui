@@ -74,7 +74,7 @@ describe('Generator', () => {
         });
     });
 
-    it('the scaffold file name is not replaced if not provided in config', () => {
+    it('does not replace scaffold file names if not provided in config', () => {
       const instance = new Generator({
         configFileName: 'multiple-generators.json'
       });
