@@ -1,0 +1,28 @@
+{
+  "scaffold-1": {
+    "templates": "./scaffold/",
+    "fileNameReplacement": ["scaffold", "name"],
+    "dest": "dest",
+    "questions": [
+      {
+        "type": "input",
+        "name": "name",
+        "message": "Name param",
+        "default": "any"
+      }
+    ]
+  },
+  "scaffold-2": {
+    "templates": "./scaffold/",
+    "fileNameReplacement": ["scaffold", "name"],
+    "dest": "dest/{{name}}",
+    "questions": [
+      {
+        "type": "input",
+        "name": "name",
+        "message": "Name param",
+        "default": "any"
+      }
+    ]
+  }
+}
