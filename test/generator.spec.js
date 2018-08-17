@@ -74,7 +74,7 @@ describe('Generator', () => {
         });
     });
 
-    it('the scaffold file name is not replaced if not provided in config', () => {
+    it('does not replace scaffold file names if not provided in config', () => {
       const instance = new Generator({
         configFileName: 'multiple-generators.json'
       });
@@ -103,6 +103,53 @@ describe('Generator', () => {
         .then(() => {
           expect(scaffold.mock.calls[0][0].dest)
             .toEqual(path.resolve(process.cwd(), '.'));
+        });
+    });
+
+    it('does not prompt for destiny if it is specified in dest key in config', () => {
+      const instance = new Generator({
+        configFileName: 'dest-in-generator.json'
+      });
+
+      inquirer.prompt
+        .mockResolvedValueOnce({type: 'scaffold-1'})
+        .mockResolvedValueOnce({name: 'any'});
+
+      return instance.init()
+        .then(() => {
+          expect(inquirer.prompt.mock.instances[1].prompt).toBeCalledWith(instance.generator.questions);
+        });
+    });
+
+    it('generates the files in the specified directory in dest key in config', () => {
+      const instance = new Generator({
+        configFileName: 'dest-in-generator.json'
+      });
+
+      inquirer.prompt
+        .mockResolvedValueOnce({type: 'scaffold-1'})
+        .mockResolvedValueOnce({name: 'any'});
+
+      return instance.init()
+        .then(() => {
+          expect(scaffold.mock.calls[0][0].dest)
+            .toEqual(path.resolve(process.cwd(), 'dest'));
+        });
+    });
+
+    it('generates the files in the specified directory in dest key with question var ({{name}}) in config', () => {
+      const instance = new Generator({
+        configFileName: 'dest-in-generator.json'
+      });
+
+      inquirer.prompt
+        .mockResolvedValueOnce({type: 'scaffold-2'})
+        .mockResolvedValueOnce({name: 'any'});
+
+      return instance.init()
+        .then(() => {
+          expect(scaffold.mock.calls[0][0].dest)
+            .toEqual(path.resolve(process.cwd(), 'dest/any'));
         });
     });
   });

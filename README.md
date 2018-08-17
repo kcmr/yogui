@@ -41,6 +41,7 @@ The file should be a **valid JSON**.
   "polymer-3-component": {
     "templates": "/Users/username/my-templates/polymer-3-component/",
     "fileNameReplacement": ["component", "name"],
+    "dest": "components/{{name}}",
     "questions": [
       {
         "type": "input",
@@ -71,6 +72,9 @@ Path to the scaffold template for a generator. It can be an absolut or relative 
 
 - **`fileNameReplacement`** (`Array`)    
 String in the scaffold file names that will be replaced by the specified variable in the files of the generated project. For example, a file named `component_test.html` in the scaffold templates will be renamed to `my-component_test.html` in the generated project if the user responds to the first question with `my-component`. If not provided, the generated files will keep the names used in the templates.
+
+- **`dest`** (`String`)   
+Destiny path for a generator. The string can contain a question variable between double curly brackets (`{{varName}}`) that will be replaced by the value given by the user to the corresponding question. This param can be useful when Yogui is used as a project dependency. For instance, you may want to create your components inside `src/<component-name>`. When this param is set the prompt for the destiny is skipped.
 
 - **`questions`** (`Array`) **required**   
 List of questions for each generator. They should have the expected format by [inquirer](https://github.com/SBoudrias/Inquirer.js). Each question has a `name` key that will be available as a variable in your scaffold templates and for the `fileNameReplacement`.
@@ -134,6 +138,7 @@ Create a `.yoguirc` file in the project's root with a relative path to the scaff
   "app-element": {
     "templates": "tasks/templates/",
     "fileNameReplacement": ["app-element", "name"],
+    "dest": "src/{{name}}",
     "questions": [
       {
         "type": "input",
