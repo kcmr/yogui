@@ -1,7 +1,7 @@
 {
   "scaffold-1": {
     "templates": "./scaffold/",
-    "fileNameReplacement": ["scaffold", "name"],
+    "fileNameReplacement": ["scaffold", "{{name}}"],
     "dest": "dest",
     "questions": [
       {
@@ -14,7 +14,7 @@
   },
   "scaffold-2": {
     "templates": "./scaffold/",
-    "fileNameReplacement": ["scaffold", "name"],
+    "fileNameReplacement": ["scaffold", "{{name}}"],
     "dest": "dest/{{name}}",
     "questions": [
       {
