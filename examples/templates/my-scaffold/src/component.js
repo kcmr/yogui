@@ -1,12 +1,12 @@
 import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
 
 /**
- * `<{{name}}>` description.
+ * `<{{componentName}}>` description.
  * @polymer
  * @customElement
  * @extends {PolymerElement}
  */
-class {{titleCase(name)}} extends PolymerElement {
+class {{titleCase(componentName)}} extends PolymerElement {
   static get template() {
     return html``;
   }
@@ -16,4 +16,4 @@ class {{titleCase(name)}} extends PolymerElement {
   }
 }
 
-customElements.define('{{name}}', {{titleCase(name)}});
+customElements.define('{{componentName}}', {{titleCase(componentName)}});
