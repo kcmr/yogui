@@ -1,7 +1,7 @@
 {
   "scaffold": {
     "templates": "./scaffold/",
-    "fileNameReplacement": ["scaffold", "name"],
+    "fileNameReplacement": ["scaffold", "{{name}}"],
     "questions": [
       {
         "type": "input",

@@ -1,5 +1,6 @@
 # Yogui
 
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![Build Status](https://img.shields.io/travis/kcmr/yogui/master.svg)](https://travis-ci.org/kcmr/yogui) 
 [![codecov](https://codecov.io/gh/kcmr/yogui/branch/master/graph/badge.svg)](https://codecov.io/gh/kcmr/yogui)
 [![npm version](https://badge.fury.io/js/yogui.svg)](https://badge.fury.io/js/yogui)
@@ -40,8 +41,8 @@ The file should be a **valid JSON**.
 {
   "polymer-3-component": {
     "templates": "/Users/username/my-templates/polymer-3-component/",
-    "fileNameReplacement": ["component", "name"],
-    "dest": "components/{{name}}",
+    "fileNameReplacement": ["component", "{{componentName}}"],
+    "dest": "components/{{componentName}}",
     "questions": [
       {
         "type": "input",
@@ -51,7 +52,7 @@ The file should be a **valid JSON**.
       },
       {
         "type": "input",
-        "name": "name",
+        "name": "componentName",
         "message": "Component name without extension (.js by default)"
       }
     ]
@@ -71,13 +72,13 @@ The key at the first level is the name of each generator. If the config file onl
 Path to the scaffold template for a generator. It can be an absolut or relative path.
 
 - **`fileNameReplacement`** (`Array`)    
-String in the scaffold file names that will be replaced by the specified variable in the files of the generated project. For example, a file named `component_test.html` in the scaffold templates will be renamed to `my-component_test.html` in the generated project if the user responds to the first question with `my-component`. If not provided, the generated files will keep the names used in the templates.
+String in the scaffold file names that will be replaced by the specified question variable between double curly brackets (`{{varName}}`) in the files of the generated project. For example, a file named `component_test.html` in the scaffold templates will be renamed to `my-component_test.html` in the generated project if the user responds to the first question with `my-component`. If not provided, the generated files will keep the names used in the templates.
 
 - **`dest`** (`String`)   
-Destiny path for a generator. The string can contain a question variable between double curly brackets (`{{varName}}`) that will be replaced by the value given by the user to the corresponding question. This param can be useful when Yogui is used as a project dependency. For instance, you may want to create your components inside `src/<component-name>`. When this param is set the prompt for the destiny is skipped.
+Destiny path for a generator. The string can contain a question variable between double curly brackets (`{{varName}}`) that will be replaced by the value given by the user to the corresponding question. This param can be useful when Yogui is used as a project dependency. For instance, you may want to create your components inside `src/<component-name>`. When this param is set, the prompt for the destiny is skipped.
 
 - **`questions`** (`Array`) **required**   
-List of questions for each generator. They should have the expected format by [inquirer](https://github.com/SBoudrias/Inquirer.js). Each question has a `name` key that will be available as a variable in your scaffold templates and for the `fileNameReplacement`.
+List of questions for each generator. They should have the expected format by [inquirer](https://github.com/SBoudrias/Inquirer.js). Each question has a `name` key that will be available as a variable in your scaffold templates and for the `fileNameReplacement` and optional `dest` params in the config file.
 
 
 ### Scaffold templates
@@ -92,10 +93,10 @@ Inside your templates you can use any of the variables obtained from the questio
 
 ```json
 {
-  "name": "{{scope}}/{{name}}",
+  "name": "{{scope}}/{{componentName}}",
   "version": "0.0.0",
   "description": "",
-  "main": "dist/{{name}}.js",
+  "main": "dist/{{componentName}}.js",
   "keywords": [],
   "dependencies": {
     "@polymer/polymer": "^3.0.5"
@@ -107,12 +108,12 @@ Inside your templates you can use any of the variables obtained from the questio
 
 ```js
 /**
- * `<{{name}}>` description.
+ * `<{{componentName}}>` description.
  * @polymer
  * @customElement
  * @extends {PolymerElement}
  */
-class {{titleCase(name)}} extends PolymerElement {
+class {{titleCase(componentName)}} extends PolymerElement {
   static get template() {
     return html``;
   }
@@ -122,7 +123,7 @@ class {{titleCase(name)}} extends PolymerElement {
   }
 }
 
-customElements.define('{{name}}', {{titleCase(name)}});
+customElements.define('{{componentName}}', {{titleCase(componentName)}});
 ```
 
 ### Used as a project dependency
@@ -137,12 +138,12 @@ Create a `.yoguirc` file in the project's root with a relative path to the scaff
 {
   "app-element": {
     "templates": "tasks/templates/",
-    "fileNameReplacement": ["app-element", "name"],
-    "dest": "src/{{name}}",
+    "fileNameReplacement": ["app-element", "{{componentName}}"],
+    "dest": "src/{{componentName}}",
     "questions": [
       {
         "type": "input",
-        "name": "name",
+        "name": "componentName",
         "message": "Element name"
       }
     ]

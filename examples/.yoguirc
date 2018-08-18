@@ -1,7 +1,7 @@
 {
   "my-scaffold": {
     "templates": "templates/my-scaffold",
-    "fileNameReplacement": ["component", "name"],
+    "fileNameReplacement": ["component", "{{componentName}}"],
     "questions": [
       {
         "type": "input",
@@ -11,7 +11,7 @@
       },
       {
         "type": "input",
-        "name": "name",
+        "name": "componentName",
         "message": "Component name without extension (.js by default)"
       }
     ]
